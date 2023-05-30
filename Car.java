@@ -12,19 +12,49 @@ public class Car extends Actor
      * Act - do whatever the Car wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-     public void act()
+     public void act() 
     {
+        if(Greenfoot.isKeyDown("right"))
+        {
+            moveRight();
+         
+        }
+ 
         if(Greenfoot.isKeyDown("left"))
         {
-           move(-3);
-           
+            moveLeft();
         }
-        else if(Greenfoot.isKeyDown("right"))
+        if (Greenfoot.isKeyDown("up"))
         {
-            move(3);
-            
+            moveUp();
         }
-        
+        if (Greenfoot.isKeyDown("down"))
+        {
+            moveDown();
+        }
+ 
+    }
+
+    public void moveRight()
+    {
+        setLocation(getX()+3, getY());
+    }
+ 
+ 
+    public void moveLeft()
+    {
+        setLocation(getX()-3, getY());
+ 
+    }
+ 
+    public void moveUp()
+    {
+        setLocation(getX(), getY()-2);
+    }
+ 
+    public void moveDown()
+    {
+        setLocation(getX(), getY()+2);
     }
     
 }

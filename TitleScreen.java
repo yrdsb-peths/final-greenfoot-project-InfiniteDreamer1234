@@ -13,12 +13,14 @@ public class TitleScreen extends World
      * Constructor for objects of class TitleScreen.
      * 
      */
+    
+    Label titleLabel = new Label("Rush Hour", 60);
     public TitleScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         
-        
+        addObject(titleLabel, getWidth()/2, getHeight()/2);
         
     }
     

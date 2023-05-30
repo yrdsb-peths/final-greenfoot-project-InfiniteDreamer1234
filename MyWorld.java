@@ -24,5 +24,15 @@ public class MyWorld extends World
         addObject(car,400,250);
         
         
+        createSpeedy1();
+        
+    }
+    
+    public void createSpeedy1()
+    {
+        Speedy speed = new Speedy ();
+        int x = Greenfoot.getRandomNumber(100);
+        int y = Greenfoot.getRandomNumber(100);
+        addObject(speed, x, y);
     }
 }
