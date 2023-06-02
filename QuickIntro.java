@@ -22,15 +22,16 @@ public class QuickIntro extends World
         Label welcomeLabel = new Label("Welcome to rush hour!", 40);
         addObject(welcomeLabel, 300,200);
         
-        Label hiLabel = new Label("You're currently late for work" , 40);
+        hiLabel = new Label("You're currently late for work" , 40);
         addObject(hiLabel, 300, 300);
         
           
     }
     
-    
+   
     public void act()
     {
+        
         if(Greenfoot.isKeyDown("Enter"))
         {
             MyWorld gameWorld = new MyWorld();
@@ -38,7 +39,8 @@ public class QuickIntro extends World
         }
         if(Greenfoot.isKeyDown("Shift"))
         {
-            removeObject(hiLabel);
+            
+            world.removeObject(hiLabel);
         }
         
     
