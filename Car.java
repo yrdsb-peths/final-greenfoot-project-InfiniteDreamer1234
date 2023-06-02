@@ -12,7 +12,9 @@ public class Car extends Actor
      * Act - do whatever the Car wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-     public void act() 
+    
+    
+    public void act() 
     {
         if(Greenfoot.isKeyDown("right"))
         {
@@ -56,5 +58,19 @@ public class Car extends Actor
     {
         setLocation(getX(), getY()+2);
     }
+    
+    public void eat()
+    {
+        if(isTouching(Speedy.class))
+        {
+            removeTouching(Speedy.class);
+           
+           
+        } 
+        
+        
+     eat();   
+    } 
+    
     
 }

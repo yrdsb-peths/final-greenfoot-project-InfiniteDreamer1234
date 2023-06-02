@@ -14,6 +14,8 @@ public class MyWorld extends World
      * 
      */
     
+    public int score = 0;
+    Label scorelabel;
     GreenfootImage road = new GreenfootImage("Road.jpg"); 
     public MyWorld()
     {    
@@ -23,9 +25,17 @@ public class MyWorld extends World
         Car car = new Car();
         addObject(car,400,250);
         
+        scorelabel = new Label(0, 80);
+        addObject(scorelabel, 50, 50);
+        
         
         createSpeedy1();
         
+    }
+    public void increaseScore()
+    {
+        score++;
+        scorelabel.setValue(score);
     }
     
     public void createSpeedy1()
@@ -35,4 +45,6 @@ public class MyWorld extends World
         int y = Greenfoot.getRandomNumber(100);
         addObject(speed, x, y);
     }
+    
+    
 }
