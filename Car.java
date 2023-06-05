@@ -34,7 +34,7 @@ public class Car extends Actor
         {
             moveDown();
         }
- 
+        eat();
     }
 
     public void moveRight()
@@ -58,19 +58,30 @@ public class Car extends Actor
     {
         setLocation(getX(), getY()+2);
     }
-    
+
+     
     public void eat()
+
+    
     {
+        MyWorld world = (MyWorld) getWorld();
         if(isTouching(Speedy.class))
         {
-            removeTouching(Speedy.class);
+            
+           world.gameOver();
+          
+           
            
            
         } 
         
-        
-     eat();   
+
+
     } 
     
+
+  
+} 
+
     
-}
+
