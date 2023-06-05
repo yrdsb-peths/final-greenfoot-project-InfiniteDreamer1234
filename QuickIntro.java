@@ -22,10 +22,12 @@ public class QuickIntro extends World
 
         
         Label welcomeLabel = new Label("Welcome to rush hour!", 40);
-        addObject(welcomeLabel, 300, 200);
+        addObject(welcomeLabel, 300, 100);
 
         Label hiLabel = new Label("You're currently late for work,", 40);
-        addObject(hiLabel, 300, 300);
+        addObject(hiLabel, 300, 150);
+        
+        removeObject(hiLabel);
           
     }
    
@@ -38,14 +40,17 @@ public class QuickIntro extends World
             Greenfoot.setWorld(gameWorld);
         }
 
-        
-        
-
-    
-     if (Greenfoot.isKeyDown("Shift")) 
+        if (Greenfoot.isKeyDown("Shift")) 
          {
-            removeObject(hiLabel);
+            delete();
+            Label rushLabel = new Label("In order to not annoy your boss,", 40);
+            addObject(rushLabel, 300, 200);
         }
+    }
+    
+    public void delete()
+    {
+        removeObject(hiLabel);
     }
 }
 

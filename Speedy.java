@@ -30,6 +30,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
             
              
         }
+        else
+         if(getY() >= world.getHeight())
+        {
+           
+            world.removeObject(this);
+            
+           
+            
+             
+        }
     }
 }
 

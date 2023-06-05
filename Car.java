@@ -69,11 +69,13 @@ public class Car extends Actor
         {
             
            world.gameOver();
-          
+           Greenfoot.stop();
+           world.restartAgain();
            
            
            
         } 
+        
         
 
 

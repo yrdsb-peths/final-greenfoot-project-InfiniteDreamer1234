@@ -36,8 +36,14 @@ public class MyWorld extends World
   
     public void gameOver()
     {
-        Label gameOverLabel = new Label("Game Over", 100);
+        Label gameOverLabel = new Label("Game Over", 40);
         addObject(gameOverLabel, 300, 200);
+    }
+    
+    public void restartAgain()
+    {
+        Label restartAgainLabel = new Label("Press space to restart", 40);
+        addObject(restartAgainLabel, 300, 300);
     }
        
        
