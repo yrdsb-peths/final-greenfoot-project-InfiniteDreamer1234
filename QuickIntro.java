@@ -10,6 +10,8 @@ public class QuickIntro extends World
 {
     private Label hiLabel;
     private Label welcomeLabel;
+    private long lastMark = System.currentTimeMillis();
+    private SimpleTimer timer = new SimpleTimer();
     /**
      * Constructor for objects of class QuickIntro.
      * 
@@ -27,7 +29,7 @@ public class QuickIntro extends World
         Label hiLabel = new Label("You're currently late for work,", 40);
         addObject(hiLabel, 300, 150);
         
-        removeObject(hiLabel);
+        
           
     }
    
@@ -40,11 +42,13 @@ public class QuickIntro extends World
             Greenfoot.setWorld(gameWorld);
         }
 
-        if (Greenfoot.isKeyDown("Shift")) 
-         {
-            delete();
-            Label rushLabel = new Label("In order to not annoy your boss,", 40);
-            addObject(rushLabel, 300, 200);
+        if (timer.millisElapsed() > 900 )
+        {
+           Label rushLabel = new Label("In order to not annoy your boss,", 40);
+           addObject(rushLabel, 300, 200);
+           Label dashLabel = new Label("You must dodge traffic and rush to work!", 40);
+           addObject(dashLabel, 300, 250);
+           
         }
     }
     
@@ -52,5 +56,11 @@ public class QuickIntro extends World
     {
         removeObject(hiLabel);
     }
+    
+    public void mark()
+    {
+        lastMark = System.currentTimeMillis();
+    }
+    
 }
 
