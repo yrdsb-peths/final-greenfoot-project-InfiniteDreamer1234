@@ -57,10 +57,10 @@ public class MyWorld extends World
         
         
 
-        addObject(speedy1, 100, 100);
-        addObject(speedy2, 200, 200);
-        addObject(speedy3, 300, 300);
-        addObject(speedy4, 400, 400);
+        addObject(speedy1, 100, 0);
+        addObject(speedy2, 250, 0);
+        addObject(speedy3, 400, 0);
+        addObject(speedy4, 550, 0);
 
     }
     

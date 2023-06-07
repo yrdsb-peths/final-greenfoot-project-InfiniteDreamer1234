@@ -23,16 +23,20 @@ public class QuickIntro extends World
         super(600, 400, 1);
 
         
-        Label welcomeLabel = new Label("Welcome to rush hour!", 40);
+        Label welcomeLabel = new Label("Welcome to rush hour!", 35);
         addObject(welcomeLabel, 300, 100);
 
-        Label hiLabel = new Label("You're currently late for work,", 40);
+        Label hiLabel = new Label("You're currently late for work ,", 35);
         addObject(hiLabel, 300, 150);
         
-        
+        if (timer.millisElapsed() > 900 )
+        {
+           removeObject(hiLabel);
+           
+        }
           
     }
-   
+    
     public void act()
     {
         
@@ -44,18 +48,24 @@ public class QuickIntro extends World
 
         if (timer.millisElapsed() > 900 )
         {
-           Label rushLabel = new Label("In order to not annoy your boss,", 40);
+           Label rushLabel = new Label("In order to not get fired", 35);
            addObject(rushLabel, 300, 200);
-           Label dashLabel = new Label("You must dodge traffic and rush to work!", 40);
+           Label dashLabel = new Label("You must dodge traffic and rush to work!", 35);
            addObject(dashLabel, 300, 250);
            
         }
+        
+        if (timer.millisElapsed() > 1500 )
+        {
+           Label finalLabel = new Label("Good luck!", 35);
+           addObject(finalLabel, 300, 300);
+           
+        }
+        
+        
     }
     
-    public void delete()
-    {
-        removeObject(hiLabel);
-    }
+    
     
     public void mark()
     {
