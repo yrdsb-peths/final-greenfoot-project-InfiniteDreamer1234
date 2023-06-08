@@ -19,6 +19,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
      */
     public void act()
     {
+       
         setLocation(getX(), getY() +1);
         MyWorld world = (MyWorld) getWorld();
         if(getY() >= world.getHeight())

@@ -13,14 +13,17 @@ public class Car extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    
+ 
+    private int distance = 100;
+
     public void act() 
     {
+        
         if(Greenfoot.isKeyDown("right"))
         {
             moveRight();
-         
         }
+       
  
         if(Greenfoot.isKeyDown("left"))
         {
@@ -37,11 +40,14 @@ public class Car extends Actor
         eat();
     }
 
+    
     public void moveRight()
     {
-        setLocation(getX()+3, getY());
+      int newX = getX() + distance; // Calculate the new x-coordinate
+            int y = getY(); // Keep the y-coordinate unchanged
+
+            setLocation(newX, y);
     }
- 
  
     public void moveLeft()
     {
