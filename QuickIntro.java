@@ -23,20 +23,17 @@ public class QuickIntro extends World
         super(600, 400, 1);
 
         
-        Label welcomeLabel = new Label("Welcome to rush hour!", 35);
+        Label welcomeLabel = new Label("Welcome to rush hour!", 40);
         addObject(welcomeLabel, 300, 100);
+        
 
-        Label hiLabel = new Label("You're currently late for work ,", 35);
+        Label hiLabel = new Label("You're currently late for work,", 40);
         addObject(hiLabel, 300, 150);
         
-        if (timer.millisElapsed() > 900 )
-        {
-           removeObject(hiLabel);
-           
-        }
+        
           
     }
-    
+   
     public void act()
     {
         
@@ -46,7 +43,8 @@ public class QuickIntro extends World
             Greenfoot.setWorld(gameWorld);
         }
 
-        if (timer.millisElapsed() > 900 )
+        
+         if (timer.millisElapsed() > 900 )
         {
            Label rushLabel = new Label("In order to not get fired", 35);
            addObject(rushLabel, 300, 200);
@@ -61,16 +59,13 @@ public class QuickIntro extends World
            addObject(finalLabel, 300, 300);
            
         }
-        
-        
     }
     
-    
-    
-    public void mark()
+     public void mark()
     {
         lastMark = System.currentTimeMillis();
-    }
+    } 
+
     
 }
 

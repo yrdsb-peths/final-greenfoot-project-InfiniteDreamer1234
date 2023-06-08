@@ -18,21 +18,22 @@ public class TitleScreen extends World
     GreenfootSound worldSound = new GreenfootSound ("Menu.mp3");
     private long lastMark = System.currentTimeMillis();
     private SimpleTimer timer = new SimpleTimer();
-   
     public TitleScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
 
         
-
-      
-        
-        
     }
 
     public void act()
     {
+        if(Greenfoot.isKeyDown("space"))
+        {
+            QuickIntro gameWorld = new QuickIntro();
+            Greenfoot.setWorld(gameWorld);
+        }
+        
         if(Greenfoot.isKeyDown("space"))
         {
             QuickIntro gameWorld = new QuickIntro();
@@ -48,13 +49,8 @@ public class TitleScreen extends World
         
             
         }
-        
     }
-    
- 
     /**
-     * 
-
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
@@ -65,4 +61,6 @@ public class TitleScreen extends World
         label.setLocation(314,241);
         label.setLocation(239,280);
     }
+
+
 }
