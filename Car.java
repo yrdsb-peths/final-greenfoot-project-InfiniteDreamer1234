@@ -14,14 +14,26 @@ public class Car extends Actor
      */
     
  
-    private int targetDistance = 300;
+    private int targetDistance = 80;
     private boolean moveLeft = false;
     private boolean moveRight = false;
     private int currentX = 0;
+    private boolean keyTapped = false;
+    private long lastMark = System.currentTimeMillis();
+    private SimpleTimer timer = new SimpleTimer();
 
     public void act() 
     {
-        
+         if (Greenfoot.isKeyDown("right") && !keyTapped) 
+         {
+             handleKeyTap();
+        }
+    
+        if (!Greenfoot.isKeyDown("right")) 
+        {
+        // Reset the keyTapped flag when the key is released
+            keyTapped = false;
+        }
         
        
  
@@ -41,7 +53,12 @@ public class Car extends Actor
         moveObject();
         eat();
     }
-
+ 
+  
+    
+    
+    
+   
     
     private void checkKeyPress() {
         if (Greenfoot.isKeyDown("left")) {
@@ -63,11 +80,20 @@ public class Car extends Actor
         }
     }
     
-    public void moveRight()
-    {
-      
+      public void handleKeyTap()
+      {
+         
+         if (timer.millisElapsed() > 100 )
+        {
+            if(Greenfoot.isKeyDown ("right"))
+            {
+            
+            }
+            
+        } 
+          
+         
       }
-    
  
     public void moveLeft()
     {
@@ -85,12 +111,6 @@ public class Car extends Actor
         setLocation(getX(), getY()+2);
     }
     
-   
-    
-    
-
-
-     
     public void eat()
 
     

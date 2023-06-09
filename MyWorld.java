@@ -52,13 +52,6 @@ public class MyWorld extends World
             addObject(readyLabel, 300, 175);
         }
         
-         if (timer.millisElapsed() > 2700 )
-        {
-            Label readyLabel = new Label("Go!" , 35);
-            addObject(readyLabel, 300, 250);
-            
-            
-        }
         
         
           if (timer.millisElapsed() > 3600 )
@@ -83,6 +76,11 @@ public class MyWorld extends World
         }
         
         
+    }
+    
+    public void isAtEdge()
+    {
+       
     }
     
     
