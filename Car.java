@@ -14,15 +14,15 @@ public class Car extends Actor
      */
     
  
-    private int distance = 100;
+    private int targetDistance = 300;
+    private boolean moveLeft = false;
+    private boolean moveRight = false;
+    private int currentX = 0;
 
     public void act() 
     {
         
-        if(Greenfoot.isKeyDown("right"))
-        {
-            moveRight();
-        }
+        
        
  
         if(Greenfoot.isKeyDown("left"))
@@ -37,17 +37,37 @@ public class Car extends Actor
         {
             moveDown();
         }
+        checkKeyPress();
+        moveObject();
         eat();
     }
 
     
+    private void checkKeyPress() {
+        if (Greenfoot.isKeyDown("left")) {
+            moveLeft = true;
+            moveRight = false;
+        } else if (Greenfoot.isKeyDown("right")) {
+            moveLeft = false;
+            moveRight = true;
+        }
+    }
+    
+    private void moveObject() {
+        if (moveLeft) {
+            setLocation(getX() - targetDistance, getY());
+            moveLeft = false;
+        } else if (moveRight) {
+            setLocation(getX() + targetDistance, getY());
+            moveRight = false;
+        }
+    }
+    
     public void moveRight()
     {
-      int newX = getX() + distance; // Calculate the new x-coordinate
-            int y = getY(); // Keep the y-coordinate unchanged
-
-            setLocation(newX, y);
-    }
+      
+      }
+    
  
     public void moveLeft()
     {
@@ -64,6 +84,11 @@ public class Car extends Actor
     {
         setLocation(getX(), getY()+2);
     }
+    
+   
+    
+    
+
 
      
     public void eat()

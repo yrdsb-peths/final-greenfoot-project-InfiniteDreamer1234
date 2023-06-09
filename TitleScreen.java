@@ -34,16 +34,12 @@ public class TitleScreen extends World
             Greenfoot.setWorld(gameWorld);
         }
         
-        if(Greenfoot.isKeyDown("space"))
-        {
-            QuickIntro gameWorld = new QuickIntro();
-            Greenfoot.setWorld(gameWorld);
-        }
+       
         if (timer.millisElapsed() > 900 )
         {
         
             worldSound.playLoop();
-            worldSound.setVolume(55);
+            worldSound.setVolume(10);
             addObject(titleLabel, getWidth()/2, getHeight()/2);
             prepare();
         
