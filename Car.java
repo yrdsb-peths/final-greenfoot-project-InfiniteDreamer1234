@@ -14,18 +14,28 @@ public class Car extends Actor
      */
     
  
-    private int targetDistance = 300;
+    private int targetDistance = 80;
     private boolean moveLeft = false;
     private boolean moveRight = false;
     private int currentX = 0;
+    private boolean keyTapped = false;
+    private long lastMark = System.currentTimeMillis();
+    private SimpleTimer timer = new SimpleTimer();
 
     public void act() 
     {
+
         
         if(Greenfoot.isKeyDown("right"))
         {
             moveRight();
         }
+
+        
+    
+       
+        
+
        
  
         if(Greenfoot.isKeyDown("left"))
@@ -43,10 +53,16 @@ public class Car extends Actor
         
         eat();
     }
-
+ 
+  
+    
+    
     
    
     
+   
+    
+
     public void moveRight()
     {
          int currentX = getX(); // Get the current x-coordinate of the object
@@ -55,8 +71,10 @@ public class Car extends Actor
         if (targetX <= getWorld().getWidth()) {
         setLocation(550, getY()); // Set the new location
     }
+
+        
+
       }
-    
  
     public void moveLeft()
     {
@@ -81,12 +99,6 @@ public class Car extends Actor
         setLocation(getX(), getY()+2);
     }
     
-   
-    
-    
-
-
-     
     public void eat()
 
     
