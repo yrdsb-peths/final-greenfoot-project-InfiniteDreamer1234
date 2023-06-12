@@ -13,7 +13,8 @@ public class Car extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
- 
+    
+
     private int targetDistance = 80;
     private boolean moveLeft = false;
     private boolean moveRight = false;
@@ -29,15 +30,8 @@ public class Car extends Actor
         if(Greenfoot.isKeyDown("right"))
         {
             moveRight();
+            
         }
-
-        
-    
-       
-        
-
-       
- 
         if(Greenfoot.isKeyDown("left"))
         {
             moveLeft();
@@ -65,8 +59,9 @@ public class Car extends Actor
 
     public void moveRight()
     {
-         int currentX = getX(); // Get the current x-coordinate of the object
-    int targetX = currentX + 100;
+        
+        int currentX = getX(); // Get the current x-coordinate of the object
+    int targetX = currentX + 1;
         
         if (targetX <= getWorld().getWidth()) {
         setLocation(550, getY()); // Set the new location

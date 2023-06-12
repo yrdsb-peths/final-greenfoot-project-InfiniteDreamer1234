@@ -13,7 +13,12 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
-    
+     boolean spawnedCar1 = false;
+boolean spawnedCar2 = false;
+boolean spawnedCar3 = false;
+boolean spawnedCar4 = false;
+    private int spawnDelay = 100;  // Time delay between car spawns (in frames)
+    private int spawnCounter = 0; 
   public int score = 0;
     Label scorelabel;
     GreenfootImage road = new GreenfootImage("Road.jpg"); 
@@ -52,37 +57,49 @@ public class MyWorld extends World
             addObject(readyLabel, 300, 175);
         }
         
+         
         
-        
-          if (timer.millisElapsed() > 3600 )
-        {
+          if (timer.millisElapsed() > 3600) 
+          { 
             removeObjects(getObjects(Label.class));
-            
-            Speedy speedy1 = new Speedy();
-            Speedy speedy2 = new Speedy();
-            Speedy speedy3 = new Speedy();
-            Speedy speedy4 = new Speedy();
+    
+    if (!spawnedCar1) {
+        Speedy speedy1 = new Speedy();
+        int lane1X = Greenfoot.getRandomNumber(150) + 100;
+        addObject(speedy1, lane1X, 0);
+        spawnedCar1 = true;
+    }
+    
+    if (!spawnedCar2) {
+        Speedy speedy2 = new Speedy();
+        int lane2X = Greenfoot.getRandomNumber(150) + 250;
+        addObject(speedy2, lane2X, 0);
+        spawnedCar2 = true;
+    }
+    
+    if (!spawnedCar3) {
+        Speedy speedy3 = new Speedy();
+        int lane3X = Greenfoot.getRandomNumber(150) + 400;
+        addObject(speedy3, lane3X, 0);
+        spawnedCar3 = true;
+    }
+    
+    if (!spawnedCar4) {
+        Speedy speedy4 = new Speedy();
+        int lane4X = Greenfoot.getRandomNumber(150) + 550;
+        addObject(speedy4, lane4X, 0);
+        spawnedCar4 = true;
+    }
+    
+    scorelabel = new Label(0, 80);
+    addObject(scorelabel, 50, 50);
 
-        
-        
-
-            addObject(speedy1, 100, 0);
-            addObject(speedy2, 250, 0);
-            addObject(speedy3, 400, 0);
-            addObject(speedy4, 550, 0);
-          
-        
-            
-        }
+          }
         
         
     }
     
-    public void isAtEdge()
-    {
-       
-    }
-    
+   
     
    
     public void gameOver()
