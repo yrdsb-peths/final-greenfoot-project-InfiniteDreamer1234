@@ -17,12 +17,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
      * Act - do whatever the Speedy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    int speed = 2;
+    
     public void act()
     {
        
         setLocation(getX(), getY() +1);
         MyWorld world = (MyWorld) getWorld();
-        if(getY() >= world.getHeight())
+        if(getY() > getWorld().getHeight() - 1)
         {
            
             world.removeObject(this);
@@ -34,6 +36,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         }
         
      
+    }
+    
+     public void setSpeed(int spd)
+    {
+        speed = spd;
     }
 }
 

@@ -13,12 +13,14 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
-     boolean spawnedCar1 = false;
+   
+    private int carSpawnDelay = 1000; // Adjust the delay value as needed
+    private int carSpawnCounter = 0;
+    boolean spawnedCar1 = false;
 boolean spawnedCar2 = false;
 boolean spawnedCar3 = false;
 boolean spawnedCar4 = false;
-    private int spawnDelay = 100;  // Time delay between car spawns (in frames)
-    private int spawnCounter = 0; 
+    
   public int score = 0;
     Label scorelabel;
     GreenfootImage road = new GreenfootImage("Road.jpg"); 
@@ -43,8 +45,7 @@ boolean spawnedCar4 = false;
     
     public void act()
     {
-         
-        
+          
         if (timer.millisElapsed() > 900 )
         {
             Label readyLabel = new Label("On your mark" , 35);
@@ -57,46 +58,57 @@ boolean spawnedCar4 = false;
             addObject(readyLabel, 300, 175);
         }
         
-         
+        if (timer.millisElapsed() > 2700 )
+        {
+            Label goLabel = new Label("G0!" , 35);
+            addObject(goLabel, 300, 250);
+        }
         
-          if (timer.millisElapsed() > 3600) 
-          { 
-            removeObjects(getObjects(Label.class));
-    
-    if (!spawnedCar1) {
-        Speedy speedy1 = new Speedy();
-        int lane1X = Greenfoot.getRandomNumber(150) + 100;
-        addObject(speedy1, lane1X, 0);
-        spawnedCar1 = true;
-    }
-    
-    if (!spawnedCar2) {
-        Speedy speedy2 = new Speedy();
-        int lane2X = Greenfoot.getRandomNumber(150) + 250;
-        addObject(speedy2, lane2X, 0);
-        spawnedCar2 = true;
-    }
-    
-    if (!spawnedCar3) {
-        Speedy speedy3 = new Speedy();
-        int lane3X = Greenfoot.getRandomNumber(150) + 400;
-        addObject(speedy3, lane3X, 0);
-        spawnedCar3 = true;
-    }
-    
-    if (!spawnedCar4) {
-        Speedy speedy4 = new Speedy();
-        int lane4X = Greenfoot.getRandomNumber(150) + 550;
-        addObject(speedy4, lane4X, 0);
-        spawnedCar4 = true;
-    }
-    
-    scorelabel = new Label(0, 80);
-    addObject(scorelabel, 50, 50);
+        if (timer.millisElapsed() > 3600 )
+        {
+        removeObjects(getObjects(Label.class));
 
-          }
+        if (carSpawnCounter == 0 && !spawnedCar1) {
+            Speedy speedy1 = new Speedy();
+            int lane1X = Greenfoot.getRandomNumber(150) + 50;
+            addObject(speedy1, lane1X, 0);
+            spawnedCar1 = true;
+            carSpawnCounter++;
+        }
+
+        if (carSpawnCounter == 1 && !spawnedCar2) {
+            Speedy speedy2 = new Speedy();
+            int lane2X = Greenfoot.getRandomNumber(150) + 150;
+            addObject(speedy2, lane2X, 0);
+            spawnedCar2 = true;
+            carSpawnCounter++;
+        }
+
+        if (carSpawnCounter == 2 && !spawnedCar3) {
+            Speedy speedy3 = new Speedy();
+            int lane3X = Greenfoot.getRandomNumber(150) + 300;
+            addObject(speedy3, lane3X, 0);
+            spawnedCar3 = true;
+            carSpawnCounter++;
+        }
+
+        if (carSpawnCounter == 3 && !spawnedCar4) {
+            Speedy speedy4 = new Speedy();
+            int lane4X = Greenfoot.getRandomNumber(150) + 450;
+            addObject(speedy4, lane4X, 0);
+            spawnedCar4 = true;
+            carSpawnCounter++;
+        }
+
+        scorelabel = new Label(0, 80);
+        addObject(scorelabel, 50, 50);
+
+        // Reset carSpawnCounter after all cars have been spawned
+        if (carSpawnCounter > 3) {
+            carSpawnCounter = 0;
+        }
         
-        
+    }
     }
     
    

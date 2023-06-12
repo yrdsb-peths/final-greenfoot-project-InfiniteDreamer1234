@@ -19,7 +19,8 @@ public class Car extends Actor
     private boolean moveLeft = false;
     private boolean moveRight = false;
     private int currentX = 0;
-    private boolean keyTapped = false;
+    
+
     private long lastMark = System.currentTimeMillis();
     private SimpleTimer timer = new SimpleTimer();
 
