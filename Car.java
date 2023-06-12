@@ -15,10 +15,7 @@ public class Car extends Actor
     
     
 
-    private int targetDistance = 80;
-    private boolean moveLeft = false;
-    private boolean moveRight = false;
-    private int currentX = 0;
+    
     
 
     private long lastMark = System.currentTimeMillis();
@@ -28,22 +25,22 @@ public class Car extends Actor
     {
 
         
-        if(Greenfoot.isKeyDown("right"))
+        if(Greenfoot.isKeyDown("1"))
         {
-            moveRight();
+            move1();
             
         }
-        if(Greenfoot.isKeyDown("left"))
+        if(Greenfoot.isKeyDown("2"))
         {
-            moveLeft();
+            move2();
         }
-        if (Greenfoot.isKeyDown("up"))
+        if (Greenfoot.isKeyDown("3"))
         {
-            moveUp();
+            move3();
         }
-        if (Greenfoot.isKeyDown("down"))
+        if (Greenfoot.isKeyDown("4"))
         {
-            moveDown();
+            move4();
         }
         
         eat();
@@ -58,41 +55,33 @@ public class Car extends Actor
    
     
 
-    public void moveRight()
+    public void move1()
     {
         
-        int currentX = getX(); // Get the current x-coordinate of the object
-    int targetX = currentX + 1;
         
-        if (targetX <= getWorld().getWidth()) {
-        setLocation(550, getY()); // Set the new location
-    }
+        setLocation(125,350);
 
         
 
       }
  
-    public void moveLeft()
+    public void move2()
     {
   
-        int currentX = getX(); // Get the current x-coordinate of the object
-    int targetX = currentX - 100;
+        setLocation(250,350); 
         
-        if (targetX <= getWorld().getWidth()) 
-        {
-        setLocation(75, getY()); // Set the new location
-    }
+        
  
     }
  
-    public void moveUp()
+    public void move3()
     {
-        setLocation(getX(), getY()-2);
+        setLocation(375,350);
     }
  
-    public void moveDown()
+    public void move4()
     {
-        setLocation(getX(), getY()+2);
+        setLocation(500,350);
     }
     
     public void eat()

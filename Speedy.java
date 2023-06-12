@@ -24,7 +24,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
        
         setLocation(getX(), getY() +1);
         MyWorld world = (MyWorld) getWorld();
-        if(getY() > getWorld().getHeight() - 1)
+        if(getY()  >= 350 )
         {
            
             world.removeObject(this);
@@ -35,7 +35,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
              
         }
         
-     
+        setRotation(180); 
     }
     
      public void setSpeed(int spd)
