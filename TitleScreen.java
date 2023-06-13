@@ -39,7 +39,7 @@ public class TitleScreen extends World
         {
         
             worldSound.playLoop();
-            worldSound.setVolume(10);
+            worldSound.setVolume(40);
             addObject(titleLabel, getWidth()/2, getHeight()/2);
             prepare();
         

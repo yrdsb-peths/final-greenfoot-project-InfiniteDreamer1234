@@ -23,6 +23,11 @@ public class QuickIntro extends World
         super(600, 400, 1);
 
         
+        Vehicle vehicle = new Vehicle();
+        vehicle.speed = 2;
+        addObject(vehicle, 300,350);
+         
+        
         Label welcomeLabel = new Label("Welcome to rush hour!", 35);
         addObject(welcomeLabel, 300, 100);
         
