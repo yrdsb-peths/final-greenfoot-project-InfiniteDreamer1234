@@ -22,6 +22,12 @@ public class Vehicle extends Actor
     
     setLocation(x + speed, y);  // Move the object horizontally
     
+        QuickIntro world = (QuickIntro) getWorld();
+        if(getX()  >= 599 )
+        {
+           world.removeObject(this);
+        }
+    
     
     
     }
