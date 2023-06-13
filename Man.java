@@ -13,14 +13,26 @@ public class Man extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    GreenfootImage[]idle = new GreenfootImage[4];
+    GreenfootImage[]idle = new GreenfootImage[5];
     public void act()
     {
-         for(int i = 0; i < idle.length; i++)
+       
+    }
+    public Man()
+    {
+    for(int i = 0; i < idle.length; i++)
         {
-            idle[i] = new GreenfootImage("images/running/idle00" + i);
+            idle[i] = new GreenfootImage("cat_idle/tile00" + i );
+            idle[i].scale(100,50);
         }
         
         setImage(idle[0]);
+    }
+    
+    int imageIndex = 0;
+    public void animateMan()
+    {
+        setImage(idle[imageIndex]);
+        imageIndex = imageIndex + 1 % idle.length;
     }
 }
