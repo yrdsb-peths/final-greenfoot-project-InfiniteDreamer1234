@@ -17,6 +17,7 @@ public class Man extends Actor
     
        
     public int speed;
+    SimpleTimer animationTimer = new SimpleTimer();
     public void act()
     {
         int x = getX();  // Get the current x-coordinate
@@ -39,16 +40,23 @@ public class Man extends Actor
     for(int i = 0; i < idle.length; i++)
         {
             idle[i] = new GreenfootImage("cat_idle/tile00" + i + ".png");
+            idle[i].mirrorHorizontally();
             idle[i].scale(60,60);
         }
-        
+        animationTimer.mark();
         setImage(idle[0]);
     }
     
     int imageIndex = 0;
     public void animateMan()
+    
     {
+        if(animationTimer.millisElapsed () < 100)
+        {
+            return;
+        }
+        animationTimer.mark();
         setImage(idle[imageIndex]);
-        imageIndex = imageIndex + 1 % idle.length;
+        imageIndex = (imageIndex + 1) % idle.length;
     }
 }
