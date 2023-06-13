@@ -13,17 +13,33 @@ public class Man extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    GreenfootImage[]idle = new GreenfootImage[5];
+    GreenfootImage[]idle = new GreenfootImage[4];
+    
+       
+    public int speed;
     public void act()
     {
-       
+        int x = getX();  // Get the current x-coordinate
+    int y = getY();  // Get the current y-coordinate
+    
+    setLocation(x + speed, y);  // Move the object horizontally
+    
+        QuickIntro world = (QuickIntro) getWorld();
+        if(getX()  >= 599 )
+        {
+           world.removeObject(this);
+        }
+    
+    
+    animateMan();
+   
     }
     public Man()
     {
     for(int i = 0; i < idle.length; i++)
         {
-            idle[i] = new GreenfootImage("cat_idle/tile00" + i );
-            idle[i].scale(100,50);
+            idle[i] = new GreenfootImage("cat_idle/tile00" + i + ".png");
+            idle[i].scale(60,60);
         }
         
         setImage(idle[0]);
