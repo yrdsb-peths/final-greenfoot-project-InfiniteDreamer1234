@@ -27,6 +27,8 @@ public class QuickIntro extends World
         vehicle.speed = 2;
         addObject(vehicle, 300,350);
          
+        Man man = new Man();
+        addObject(man, 100, 350);
         
         Label welcomeLabel = new Label("Welcome to rush hour!", 35);
         addObject(welcomeLabel, 300, 100);
