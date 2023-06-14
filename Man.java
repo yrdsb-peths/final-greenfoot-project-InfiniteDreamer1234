@@ -42,7 +42,7 @@ public class Man extends Actor
         {
             idle[i] = new GreenfootImage("cat_idle/tile" + i + ".png");
             idle[i].mirrorHorizontally();
-            idle[i].scale(40,40);
+            idle[i].scale(45,45);
         }
         animationTimer.mark();
         setImage(idle[0]);

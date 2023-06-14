@@ -19,7 +19,7 @@ public class Vehicle extends Actor
     private SimpleTimer timer = new SimpleTimer();
     public void act()
     {
-        if(timer.millisElapsed() > 1400 )
+        if(timer.millisElapsed() > 1700 )
         {
         
             int x = getX();  // Get the current x-coordinate
