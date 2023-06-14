@@ -18,7 +18,7 @@ public class MyWorld extends World
     
     private boolean isCarSpawning = false;
     private int spawningLane = -1; 
-    public int score = 0;
+    public static int score = 0;
     Label scorelabel;
     GreenfootImage road = new GreenfootImage("Road.jpg"); 
     private long lastMark = System.currentTimeMillis();
@@ -104,16 +104,21 @@ public class MyWorld extends World
     Speedy speedy = new Speedy();
     if (spawningLane == 1) {
         addObject(speedy, 125, 50);
+        increaseScore();
     } else if (spawningLane == 2) {
         addObject(speedy, 250, 50);
+        increaseScore();
     } else if (spawningLane == 3) {
         addObject(speedy, 375, 50);
+        increaseScore();
     } else if (spawningLane == 4) {
         addObject(speedy, 500, 50);
+        increaseScore();
     }
 }   
     
-  public void gameOver()
+    
+    public void gameOver()
     {
         Label gameOverLabel = new Label("Game Over", 35);
         addObject(gameOverLabel, 300, 200);

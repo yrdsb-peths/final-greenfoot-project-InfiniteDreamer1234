@@ -38,6 +38,7 @@ public class Car extends Actor
         }
         
         eat();
+        
     }
  
     public void move1()
@@ -63,6 +64,7 @@ public class Car extends Actor
     public void eat()
     {
         MyWorld world = (MyWorld) getWorld();
+        
         if(isTouching(Speedy.class))
         {
             
@@ -71,6 +73,8 @@ public class Car extends Actor
            world.restartAgain();
         } 
     } 
+    
+   
 } 
 
     

@@ -18,7 +18,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     int speed = 1;
-    public int score = 0;
+    static int score = 0;
     Label scorelabel;
     
     public void act()
@@ -31,19 +31,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         if(getY()  >= 350 )
         {
            world.removeObject(this);
-           world.increaseScore();
+           
         }
         
         setRotation(180); 
         
     }
-    
-     public void increaseScore()
-    {
-        score++;
-        scorelabel.setValue(score);
-    }
    
+ 
     
      public void setSpeed(int spd)
     {
