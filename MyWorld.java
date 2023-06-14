@@ -18,7 +18,7 @@ public class MyWorld extends World
     
     private boolean isCarSpawning = false;
     private int spawningLane = -1; 
-    public static int score = 0;
+    private static int score = 0;
     Label scorelabel;
     GreenfootImage road = new GreenfootImage("Road.jpg"); 
     private long lastMark = System.currentTimeMillis();
@@ -115,6 +115,8 @@ public class MyWorld extends World
         addObject(speedy, 500, 50);
         increaseScore();
     }
+    
+    
 }   
     
     

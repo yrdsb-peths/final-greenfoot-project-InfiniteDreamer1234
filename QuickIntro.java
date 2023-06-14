@@ -53,7 +53,7 @@ public class QuickIntro extends World
         
         
 
-         if(Greenfoot.isKeyDown("1"))
+         if(Greenfoot.isKeyDown("T"))
         {
             QuickTutorial gameWorld = new QuickTutorial();
             Greenfoot.setWorld(gameWorld);
@@ -81,7 +81,7 @@ public class QuickIntro extends World
         {
            
            removeObjects(getObjects(Label.class));
-           Label instructionsLabel = new Label("Press 1 to go to the instructions page", 35);
+           Label instructionsLabel = new Label("Press T to go to the instructions page", 35);
            addObject(instructionsLabel, 300, 100);
            Label gameLabel = new Label("Press enter to go play the game! ", 35);
            addObject(gameLabel, 300, 200);

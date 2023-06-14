@@ -20,6 +20,8 @@ public class QuickTutorial extends World
         super(600, 400, 1); 
         
         
+        Speeding speeding = new Speeding();
+        addObject(speeding,350,350);
         
         
         
@@ -27,6 +29,13 @@ public class QuickTutorial extends World
     
     public void act()
     {
+        if(Greenfoot.isKeyDown("Enter"))
+        {
+            MyWorld gameWorld = new MyWorld();
+            Greenfoot.setWorld(gameWorld);
+        }
+        
+        
         if (timer.millisElapsed() > 900 )
         {
             Label welcomeLabel = new Label("Welcome to the tutorial!" , 35);
@@ -44,6 +53,46 @@ public class QuickTutorial extends World
             Label pressLabel = new Label("Please press 1, 2, 3, or 4" , 35);
             addObject(pressLabel, 300, 250);
         }
-    }
-    
+        
+        if (timer.millisElapsed() > 4500 )
+        {
+            
+            removeObjects(getObjects(Label.class));
+            
+            Label goodLabel = new Label("Very good! Very good!" , 35);
+            addObject(goodLabel, 325,100);
+            
+            Label goalLabel = new Label("Your main goal in this game", 35);
+            addObject(goalLabel, 300, 175);
+            
+            Label dodgeLabel = new Label("will be to dodge oncoming traffic",35);
+            addObject(dodgeLabel, 300, 250);
+            
+            
+        }
+        
+        if (timer.millisElapsed() > 5500 )
+        {
+            
+            removeObjects(getObjects(Label.class));
+            
+            Label eachLabel = new Label("Each car you dodge will give you 1 point" , 35);
+            addObject(eachLabel, 300,100);
+            
+            Label luckLabel = new Label("Good luck with making it to work on time!" , 35);
+            addObject(luckLabel, 300, 175);
+            
+            Label startLabel = new Label("Press Enter to start the game", 35);
+            addObject(startLabel, 300, 250);
+            
+           
+            
+            
+        }
+            
+            
+        }
 }
+    
+    
+

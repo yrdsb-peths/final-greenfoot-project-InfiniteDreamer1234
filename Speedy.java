@@ -23,24 +23,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
     
     public void act()
     {
-       
-        
-        
-        setLocation(getX(), getY() + 3); 
+       setLocation(getX(), getY() + 3); 
         MyWorld world = (MyWorld) getWorld();
         if(getY()  >= 350 )
         {
            world.removeObject(this);
            
         }
-        
         setRotation(180); 
-        
     }
-   
- 
     
-     public void setSpeed(int spd)
+    public void setSpeed(int spd)
     {
         speed = spd;
     }

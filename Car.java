@@ -69,6 +69,7 @@ public class Car extends Actor
         {
             
            world.gameOver();
+           world.increaseScore();
            Greenfoot.stop();
            world.restartAgain();
         } 
