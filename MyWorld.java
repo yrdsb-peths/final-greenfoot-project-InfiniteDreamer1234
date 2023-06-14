@@ -62,23 +62,22 @@ public class MyWorld extends World
         if (timer.millisElapsed() > 3600 )
         {
         removeObjects(getObjects(Label.class));
-
-        
-
         scorelabel = new Label(0, 80);
         addObject(scorelabel, 50, 50);
-        
-         if (!isCarSpawning) {
-        createSpeedy();
-    } else {
-        if (getObjects(Speedy.class).isEmpty()) {
+        if (!isCarSpawning) 
+         {
+            createSpeedy();
+        } else {
+        if (getObjects(Speedy.class).isEmpty()) 
+        {
             spawnCar();
             isCarSpawning = false;
+            
         }
     }
         
         }
-    
+     
     }    
     public void createSpeedy() 
      {
@@ -114,8 +113,7 @@ public class MyWorld extends World
     }
 }   
     
-   
-    public void gameOver()
+  public void gameOver()
     {
         Label gameOverLabel = new Label("Game Over", 35);
         addObject(gameOverLabel, 300, 200);

@@ -18,31 +18,32 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     int speed = 1;
+    public int score = 0;
+    Label scorelabel;
     
     public void act()
     {
        
         
         
-        setLocation(getX(), getY() + 3); // Move the car down by 1 pixel in each frame
+        setLocation(getX(), getY() + 3); 
         MyWorld world = (MyWorld) getWorld();
         if(getY()  >= 350 )
         {
            world.removeObject(this);
-           
+           world.increaseScore();
         }
         
         setRotation(180); 
-        avoid();
-    }
-    
-     
         
-    public void avoid()
-    
-    {
-        world.increaseScore();
     }
+    
+     public void increaseScore()
+    {
+        score++;
+        scorelabel.setValue(score);
+    }
+   
     
      public void setSpeed(int spd)
     {
