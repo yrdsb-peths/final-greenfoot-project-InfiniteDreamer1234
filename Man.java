@@ -13,7 +13,7 @@ public class Man extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    GreenfootImage[]idle = new GreenfootImage[4];
+    GreenfootImage[]idle = new GreenfootImage[18];
     
        
     public int speed;
@@ -33,15 +33,16 @@ public class Man extends Actor
     
     
     animateMan();
+    eat();
    
     }
     public Man()
     {
     for(int i = 0; i < idle.length; i++)
         {
-            idle[i] = new GreenfootImage("cat_idle/tile00" + i + ".png");
+            idle[i] = new GreenfootImage("cat_idle/tile" + i + ".png");
             idle[i].mirrorHorizontally();
-            idle[i].scale(60,60);
+            idle[i].scale(40,40);
         }
         animationTimer.mark();
         setImage(idle[0]);
@@ -59,4 +60,14 @@ public class Man extends Actor
         setImage(idle[imageIndex]);
         imageIndex = (imageIndex + 1) % idle.length;
     }
+    
+    public void eat()
+    {
+        QuickIntro world = (QuickIntro) getWorld();
+        if(isTouching(Vehicle.class))
+        {
+            getWorld().removeObject(this);
+           
+        } 
+    } 
 }

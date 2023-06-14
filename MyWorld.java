@@ -36,11 +36,6 @@ boolean spawnedCar4 = false;
         
         scorelabel = new Label(0, 80);
         addObject(scorelabel, 50, 50);
-        
-        
-        
-         
-        
     }
     
     public void act()

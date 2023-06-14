@@ -12,12 +12,6 @@ public class Car extends Actor
      * Act - do whatever the Car wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
-    
-
-    
-    
-
     private long lastMark = System.currentTimeMillis();
     private SimpleTimer timer = new SimpleTimer();
 
@@ -46,32 +40,14 @@ public class Car extends Actor
         eat();
     }
  
-  
-    
-    
-    
-   
-    
-   
-    
-
     public void move1()
     {
-        
-        
         setLocation(125,350);
-
-        
-
-      }
+    }
  
     public void move2()
     {
-  
         setLocation(250,350); 
-        
-        
- 
     }
  
     public void move3()
@@ -85,8 +61,6 @@ public class Car extends Actor
     }
     
     public void eat()
-
-    
     {
         MyWorld world = (MyWorld) getWorld();
         if(isTouching(Speedy.class))
@@ -95,18 +69,8 @@ public class Car extends Actor
            world.gameOver();
            Greenfoot.stop();
            world.restartAgain();
-           
-           
-           
         } 
-        
-        
-
-
     } 
-    
-
-  
 } 
 
     
