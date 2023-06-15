@@ -26,7 +26,7 @@ public class MyWorld extends World
         super(600, 400, 1);
         
         Car car = new Car();
-        addObject(car,350,350);
+        addObject(car,375,350);
         
         scorelabel = new Label(0, 80);
         addObject(scorelabel, 50, 50);
@@ -85,6 +85,21 @@ public class MyWorld extends World
                 spawnCar();
             }
         }
+        
+        if(score >=100)
+        {
+          
+            
+               removeObjects(getObjects(Car.class));
+            
+                Label congratsLabel = new Label("Congratulations! You made it" , 35);
+                addObject(congratsLabel, 300,100);
+           
+                Label workLabel = new Label("to work! To return to the menu, press space," ,35);
+                addObject(workLabel, 300, 175);
+            
+        }
+        
         updateScoreLabel();
     }
         
@@ -134,11 +149,25 @@ public class MyWorld extends World
 }   
     private void createAdditionalSpeedy()
     {
-    // WIll spawn another blue car with each lane randomized 
+    // Will spawn another blue car with each lane randomized 
     if (!isCarSpawning) {
         int num = Greenfoot.getRandomNumber(4) + 1;
         if (num == spawningLane) {
             num = (num % 4) + 1; // 
+        }
+        spawningLane = num;
+        isCarSpawning = true;
+        spawnCar();
+    }
+}
+
+    private void createAdditionalSpeedy1()
+    {
+    // WIll spawn another blue car with each lane randomized 
+    if (!isCarSpawning) {
+        int num = Greenfoot.getRandomNumber(4) + 2;
+        if (num == spawningLane) {
+            num = (num % 4) + 2; // 
         }
         spawningLane = num;
         isCarSpawning = true;
@@ -167,7 +196,7 @@ public class MyWorld extends World
     
     private void updateScoreLabel() 
     {
-        //Updates the totla score 
+        //Updates the total score 
         scorelabel.setValue(score);
     }
     
