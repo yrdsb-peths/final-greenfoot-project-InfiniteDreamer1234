@@ -13,12 +13,9 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
-    
-    
-    
     private boolean isCarSpawning = false;
     private int spawningLane = -1; 
-    private static int score = 0;
+    public int score = 0;
     Label scorelabel;
     GreenfootImage road = new GreenfootImage("Road.jpg"); 
     private long lastMark = System.currentTimeMillis();
@@ -35,12 +32,14 @@ public class MyWorld extends World
         addObject(scorelabel, 50, 50);
     }
     
-     
-    
-    
-    public void act()
+     public void act()
     {
-          
+        if (Greenfoot.isKeyDown("space")) {
+            TitleScreen gameWorld = new TitleScreen();
+            Greenfoot.setWorld(gameWorld);
+        }
+        
+        
         if (timer.millisElapsed() > 900 )
         {
             Label readyLabel = new Label("On your mark" , 35);
@@ -61,9 +60,9 @@ public class MyWorld extends World
         
         if (timer.millisElapsed() > 3600 )
         {
-        removeObjects(getObjects(Label.class));
-        scorelabel = new Label(0, 80);
-        addObject(scorelabel, 50, 50);
+            removeObjects(getObjects(Label.class));
+            scorelabel = new Label(0, 80);
+            addObject(scorelabel, 50, 50);
         if (!isCarSpawning) 
          {
             createSpeedy();
@@ -74,6 +73,19 @@ public class MyWorld extends World
             isCarSpawning = false;
             
         }
+        
+            if (score >= 5) {
+        if (!isCarSpawning) {
+            createAdditionalSpeedy();
+            spawnCar();
+        }
+        
+        
+    }
+    
+    
+
+        updateScoreLabel();
     }
         
         }
@@ -100,48 +112,66 @@ public class MyWorld extends World
         }
     }
     
+    
     private void spawnCar() {
-    Speedy speedy = new Speedy();
+    Speedy speedy = new Speedy(score);
     if (spawningLane == 1) {
         addObject(speedy, 125, 50);
-        increaseScore();
+        
     } else if (spawningLane == 2) {
         addObject(speedy, 250, 50);
-        increaseScore();
+        
     } else if (spawningLane == 3) {
         addObject(speedy, 375, 50);
-        increaseScore();
+        
     } else if (spawningLane == 4) {
         addObject(speedy, 500, 50);
-        increaseScore();
+        
     }
     
-    
 }   
-    
-    
+    private void createAdditionalSpeedy()
+    {
+
+    if (!isCarSpawning) {
+        int num = Greenfoot.getRandomNumber(4) + 1;
+        if (num == spawningLane) {
+            num = (num % 4) + 1; // Choose a different lane than the previous spawningLane
+        }
+        spawningLane = num;
+        isCarSpawning = true;
+        spawnCar();
+    }
+}
+
     public void gameOver()
     {
         Label gameOverLabel = new Label("Game Over", 35);
         addObject(gameOverLabel, 300, 200);
+        
     }
     
     public void restartAgain()
     {
-        Label restartAgainLabel = new Label("Press space to restart", 35);
+        Label restartAgainLabel = new Label("Press space to return to the menu", 35);
         addObject(restartAgainLabel, 300, 300);
     }
        
     public void increaseScore()
     {
         score++;
+    }
+    
+    private void updateScoreLabel() 
+    {
         scorelabel.setValue(score);
     }
-
-     public void mark()
+    
+    public void mark()
     {
         lastMark = System.currentTimeMillis();
     }  
-
     
+  
+
 }

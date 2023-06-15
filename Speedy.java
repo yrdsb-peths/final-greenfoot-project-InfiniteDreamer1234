@@ -17,24 +17,39 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
      * Act - do whatever the Speedy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    int speed = 1;
-    static int score = 0;
-    Label scorelabel;
     
-    public void act()
-    {
-       setLocation(getX(), getY() + 3); 
+    int speed = 1;
+    private int score;
+    Label scorelabel;
+    private boolean isRemoved = false;
+    
+    public Speedy(int score) {
+        this.score = score; // Assign the passed score value
+    }
+
+    public void act() {
+        setLocation(getX(), getY() + 3); 
         MyWorld world = (MyWorld) getWorld();
-        if(getY()  >= 350 )
-        {
-           world.removeObject(this);
-           
+        if (!isAtEdge()) {
+        if (score > 25) {
+            setLocation(getX(), getY() + 4);
+            if(score > 50)
+            {
+                setLocation(getX(), getY() + 5);
+            }
         }
+    } else {
+        if (!isRemoved) {
+            isRemoved = true;
+            world.removeObject(this);
+            world.increaseScore();
+        }
+    }
+
         setRotation(180); 
     }
-    
-    public void setSpeed(int spd)
-    {
+
+    public void setSpeed(int spd) {
         speed = spd;
     }
 }

@@ -71,7 +71,7 @@ public class QuickTutorial extends World
             
         }
         
-        if (timer.millisElapsed() > 5500 )
+        if (timer.millisElapsed() > 6500 )
         {
             
             removeObjects(getObjects(Label.class));
