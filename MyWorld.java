@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class MyWorld here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Justin Dong 
+ * June 2023 
  */
 public class MyWorld extends World
 {
@@ -34,12 +34,14 @@ public class MyWorld extends World
     
      public void act()
     {
+        
+        //Leads the user back to the title screen
         if (Greenfoot.isKeyDown("space")) {
             TitleScreen gameWorld = new TitleScreen();
             Greenfoot.setWorld(gameWorld);
         }
         
-        
+        //The text will dissapear and appear based on the time needed 
         if (timer.millisElapsed() > 900 )
         {
             Label readyLabel = new Label("On your mark" , 35);
@@ -63,6 +65,7 @@ public class MyWorld extends World
             removeObjects(getObjects(Label.class));
             scorelabel = new Label(0, 80);
             addObject(scorelabel, 50, 50);
+        //Spawns a car 
         if (!isCarSpawning) 
          {
             createSpeedy();
@@ -73,18 +76,15 @@ public class MyWorld extends World
             isCarSpawning = false;
             
         }
-        
-            if (score >= 5) {
-        if (!isCarSpawning) {
-            createAdditionalSpeedy();
-            spawnCar();
+        //Created another car when the score is higher than 5 
+        if (score >= 5) 
+        {
+            if (!isCarSpawning) 
+            {
+                createAdditionalSpeedy();
+                spawnCar();
+            }
         }
-        
-        
-    }
-    
-    
-
         updateScoreLabel();
     }
         
@@ -93,7 +93,7 @@ public class MyWorld extends World
     }    
     public void createSpeedy() 
      {
-        
+        //decides which lane the car will spawn in 
          if (!isCarSpawning) {
         int num = Greenfoot.getRandomNumber(4);
         if (num == 1 && spawningLane != 1) {
@@ -113,7 +113,9 @@ public class MyWorld extends World
     }
     
     
-    private void spawnCar() {
+    private void spawnCar() 
+    //Spawns the car according to its assigned lane  
+    {
     Speedy speedy = new Speedy(score);
     if (spawningLane == 1) {
         addObject(speedy, 125, 50);
@@ -132,11 +134,11 @@ public class MyWorld extends World
 }   
     private void createAdditionalSpeedy()
     {
-
+    // WIll spawn another blue car with each lane randomized 
     if (!isCarSpawning) {
         int num = Greenfoot.getRandomNumber(4) + 1;
         if (num == spawningLane) {
-            num = (num % 4) + 1; // Choose a different lane than the previous spawningLane
+            num = (num % 4) + 1; // 
         }
         spawningLane = num;
         isCarSpawning = true;
@@ -159,19 +161,15 @@ public class MyWorld extends World
        
     public void increaseScore()
     {
+        //Increases the score 
         score++;
     }
     
     private void updateScoreLabel() 
     {
+        //Updates the totla score 
         scorelabel.setValue(score);
     }
     
-    public void mark()
-    {
-        lastMark = System.currentTimeMillis();
-    }  
     
-  
-
 }

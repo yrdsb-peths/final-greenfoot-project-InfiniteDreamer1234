@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Speedy here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Justin Dong 
+ * June 2023 
  */
 
     /**
@@ -18,20 +18,25 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    int speed = 1;
     private int score;
     Label scorelabel;
     private boolean isRemoved = false;
     
+    
+    // Assign the passed score value
     public Speedy(int score) {
-        this.score = score; // Assign the passed score value
+        this.score = score; 
     }
 
     public void act() {
         setLocation(getX(), getY() + 3); 
         MyWorld world = (MyWorld) getWorld();
-        if (!isAtEdge()) {
-        if (score > 25) {
+        
+        //Determines speed of the car based on the total score 
+        if (!isAtEdge()) 
+        {
+            if (score > 25) 
+            {
             setLocation(getX(), getY() + 4);
             if(score > 50)
             {
@@ -39,6 +44,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
             }
         }
     } else {
+        // Increases the score when the car leaves the world 
         if (!isRemoved) {
             isRemoved = true;
             world.removeObject(this);
@@ -49,9 +55,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         setRotation(180); 
     }
 
-    public void setSpeed(int spd) {
-        speed = spd;
-    }
+
 }
 
 

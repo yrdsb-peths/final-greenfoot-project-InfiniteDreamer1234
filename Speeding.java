@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Speeding here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Justin Dong 
+ * June 2023 
  */
 public class Speeding extends Actor
 {
@@ -17,8 +17,8 @@ public class Speeding extends Actor
     
     public void act() 
     {
-
-        
+ 
+        // Keys used to make the tutorial car move 
         if(Greenfoot.isKeyDown("1"))
         {
             move1();
@@ -40,7 +40,7 @@ public class Speeding extends Actor
       
         
     }
- 
+     // Coordinates where the car will move to depending on the key pressed 
     public void move1()
     {
         setLocation(125,350);

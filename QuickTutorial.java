@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class QuickTutorial here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Justin Dong 
+ * June 2023 
  */
 public class QuickTutorial extends World
 {
@@ -19,7 +19,7 @@ public class QuickTutorial extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         
-        
+        // Spawns the tutorial car 
         Speeding speeding = new Speeding();
         addObject(speeding,350,350);
         
@@ -29,13 +29,15 @@ public class QuickTutorial extends World
     
     public void act()
     {
+        // Will lead the user to the actual world where they play the game 
         if(Greenfoot.isKeyDown("Enter"))
         {
             MyWorld gameWorld = new MyWorld();
             Greenfoot.setWorld(gameWorld);
         }
         
-        
+        // The text will appear and dissapear after certain
+        // periods of time 
         if (timer.millisElapsed() > 900 )
         {
             Label welcomeLabel = new Label("Welcome to the tutorial!" , 35);

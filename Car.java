@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Car here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Justin Dong 
+ * June 2023 
  */
 public class Car extends Actor
 {
@@ -12,13 +12,13 @@ public class Car extends Actor
      * Act - do whatever the Car wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private long lastMark = System.currentTimeMillis();
-    private SimpleTimer timer = new SimpleTimer();
+   
+    GreenfootSound glassSound = new GreenfootSound("Glass.mp3");
 
     public void act() 
     {
 
-        
+        // How the user car will be moving 
         if(Greenfoot.isKeyDown("1"))
         {
             move1();
@@ -37,10 +37,11 @@ public class Car extends Actor
             move4();
         }
         
-        eat();
+        crash();
         
     }
  
+    // Coordinates where the car will move 
     public void move1()
     {
         setLocation(125,350);
@@ -61,8 +62,13 @@ public class Car extends Actor
         setLocation(500,350);
     }
     
-    public void eat()
+    
+    
+    public void crash()
     {
+        // If it crashed into the blue car,
+        // the game will be over 
+        
         MyWorld world = (MyWorld) getWorld();
         
         if(isTouching(Speedy.class))
@@ -71,6 +77,7 @@ public class Car extends Actor
            world.gameOver();
            Greenfoot.stop();
            world.restartAgain();
+           glassSound.play();
            
         } 
     } 

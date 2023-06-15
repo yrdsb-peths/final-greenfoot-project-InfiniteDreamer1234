@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class QuickIntro here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Justin Dong 
+ * June 2023 
  */
 public class QuickIntro extends World
 {
@@ -22,11 +22,11 @@ public class QuickIntro extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
 
-        
+        //Spawns the veichle with a set speed 
         Vehicle vehicle = new Vehicle();
         vehicle.speed = 2;
         addObject(vehicle, 300,350);
-         
+        //Spawns the animated man  
         Man man = new Man();
         man.speed = 2;
         addObject(man, 50, 345);
@@ -44,7 +44,7 @@ public class QuickIntro extends World
    
     public void act()
     {
-        
+        // Will lead the user to the actual world where the game is played 
         if(Greenfoot.isKeyDown("Enter"))
         {
             MyWorld gameWorld = new MyWorld();
@@ -52,7 +52,7 @@ public class QuickIntro extends World
         }
         
         
-
+        //Will lead the user to the tutorial 
          if(Greenfoot.isKeyDown("T"))
         {
             QuickTutorial gameWorld = new QuickTutorial();
@@ -60,7 +60,7 @@ public class QuickIntro extends World
         }
     
 
-        
+        //The text will appear and dissapear after a certain period of time 
          if (timer.millisElapsed() > 900 )
         {
            Label rushLabel = new Label("In order to not get fired", 35);
@@ -88,10 +88,7 @@ public class QuickIntro extends World
         }
     }
     
-     public void mark()
-    {
-        lastMark = System.currentTimeMillis();
-    } 
+     
 
     
 }

@@ -28,13 +28,15 @@ public class TitleScreen extends World
 
     public void act()
     {
+        // Will lead the user to an intorduction about the game 
+        
         if(Greenfoot.isKeyDown("space"))
         {
             QuickIntro gameWorld = new QuickIntro();
             Greenfoot.setWorld(gameWorld);
         }
         
-       
+        // After around 1 second, the title will appear on the screen 
         if (timer.millisElapsed() > 900 )
         {
         
@@ -55,7 +57,7 @@ public class TitleScreen extends World
         Label label = new Label("Press space to continue", 40);
         addObject(label,269,300);
         label.setLocation(314,241);
-        label.setLocation(239,280);
+        label.setLocation(314,280);
     }
 
 

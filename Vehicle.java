@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Vehicle here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @ Justin Dong 
+ * @ June 2023 
  */
 
  
@@ -19,13 +19,15 @@ public class Vehicle extends Actor
     private SimpleTimer timer = new SimpleTimer();
     public void act()
     {
+        // Vehicle will move towards the right after 1.9 seconds 
         if(timer.millisElapsed() > 1900 )
         {
         
-            int x = getX();  // Get the current x-coordinate
-            int y = getY();  // Get the current y-coordinate
-            setLocation(x + speed, y);  // Move the object horizontally
+            int x = getX();  
+            int y = getY();  
+            setLocation(x + speed, y);  
             QuickIntro world = (QuickIntro) getWorld();
+            // Once the vehicle reaches the end of the world, it will dissapear 
             if(getX()  >= 599 )
             {
                world.removeObject(this);
